@@ -1,0 +1,63 @@
+#! /usr/bin/env bash
+#
+#  edit and run this script to update the run scripts for the pipeline
+#
+
+common="admit=0 restart=1"
+
+project="2021-S1-UM-11"
+
+
+
+# 132227.28+300717.0
+on1="98224 98225 98226 98229 98230 98231 98333 98334"
+# J113833.13+004950.2
+on2="98188 98189 98190 98193 98194 98195 98311 98312 98313 98426 98427"
+# J115059.63-262558.4
+on3="98199 98200 98201 98204 98205 98206 98431 98432"
+# J144219.65+672230.0
+on4="98236 98237 98238 98241 98242 98243 98338 98339"
+# J150054.67+092038.0
+on5="98390 98391 98392 98395 98396 98397 98495 98496"
+# J155428.27-025618.1
+on6="98501 98502 98503 98504 98505 98506 98512 98513 98514"
+# J164421.60+600011.4
+on7="98343 98344 98345 98348 98349 98352 98353 98354"
+# J174209.16+490457.3
+on8="98265 98266 98267 98270 98271 98272 98359 98360 98361 98364 98365 98366 98369 98370"
+
+# bad ones to be fully removed from final combination
+on1b=""
+
+
+obsnums="$on1 $on2 $on3 $on4 $on5 $on6 $on7 $on8"
+
+
+#                       create the run file for single obsnum runs, also incoorporate any obsnum specific arguments
+job1=$project.run1
+job2=$project.run2
+rm -f $job1 $job2
+touch $job1 $job2
+for o in $obsnums ; do
+    if [ -e $o.args ]; then
+	args=$(cat $o.args)
+    fi
+    echo SLpipeline.sh obsnum=$o $common $args >> $job1
+    args=""
+done
+
+#                       create the run file for combination runs
+
+echo SLpipeline.sh obsnums=$(echo $on1 | sed 's/ /,/g') srdp=1 >> $job2
+echo SLpipeline.sh obsnums=$(echo $on2 | sed 's/ /,/g') srdp=1 >> $job2
+echo SLpipeline.sh obsnums=$(echo $on3 | sed 's/ /,/g') srdp=1 >> $job2
+echo SLpipeline.sh obsnums=$(echo $on4 | sed 's/ /,/g') srdp=1 >> $job2
+echo SLpipeline.sh obsnums=$(echo $on5 | sed 's/ /,/g') srdp=1 >> $job2
+echo SLpipeline.sh obsnums=$(echo $on6 | sed 's/ /,/g') srdp=1 >> $job2
+echo SLpipeline.sh obsnums=$(echo $on7 | sed 's/ /,/g') srdp=1 >> $job2
+echo SLpipeline.sh obsnums=$(echo $on8 | sed 's/ /,/g') srdp=1 >> $job2
+
+echo "Found $(cat $job1 | wc -l) single obsnums in $job1"
+echo "Found $(cat $job2 | wc -l) combinations in $job2"
+echo "Have fun running them."
+
