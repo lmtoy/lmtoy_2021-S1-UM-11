@@ -3,7 +3,8 @@
 #  edit and run this script to update the run scripts for the pipeline
 #
 
-common="admit=0 restart=1"
+common1="admit=0 restart=1 badcb=2/1,2/4"
+common2="admit=0 restart=1 srdp=1"
 
 project="2021-S1-UM-11"
 
@@ -57,20 +58,20 @@ for o in $obsnums ; do
     if [ -e $o.args ]; then
 	args=$(cat $o.args)
     fi
-    echo SLpipeline.sh obsnum=$o $common $args >> $job1
+    echo SLpipeline.sh obsnum=$o $common1 $args >> $job1
     args=""
 done
 
 #                       create the run file for combination runs
 
-echo SLpipeline.sh obsnums=$(echo $on1 | sed 's/ /,/g') srdp=1 >> $job2
-echo SLpipeline.sh obsnums=$(echo $on2 | sed 's/ /,/g') srdp=1 >> $job2
-echo SLpipeline.sh obsnums=$(echo $on3 | sed 's/ /,/g') srdp=1 >> $job2
-echo SLpipeline.sh obsnums=$(echo $on4 | sed 's/ /,/g') srdp=1 >> $job2
-echo SLpipeline.sh obsnums=$(echo $on5 | sed 's/ /,/g') srdp=1 >> $job2
-echo SLpipeline.sh obsnums=$(echo $on6 | sed 's/ /,/g') srdp=1 >> $job2
-echo SLpipeline.sh obsnums=$(echo $on7 | sed 's/ /,/g') srdp=1 >> $job2
-echo SLpipeline.sh obsnums=$(echo $on8 | sed 's/ /,/g') srdp=1 >> $job2
+echo SLpipeline.sh obsnums=$(echo $on1 | sed 's/ /,/g') $common >> $job2
+echo SLpipeline.sh obsnums=$(echo $on2 | sed 's/ /,/g') $common >> $job2
+echo SLpipeline.sh obsnums=$(echo $on3 | sed 's/ /,/g') $common >> $job2
+echo SLpipeline.sh obsnums=$(echo $on4 | sed 's/ /,/g') $common >> $job2
+echo SLpipeline.sh obsnums=$(echo $on5 | sed 's/ /,/g') $common >> $job2
+echo SLpipeline.sh obsnums=$(echo $on6 | sed 's/ /,/g') $common >> $job2
+echo SLpipeline.sh obsnums=$(echo $on7 | sed 's/ /,/g') $common >> $job2
+echo SLpipeline.sh obsnums=$(echo $on8 | sed 's/ /,/g') $common >> $job2
 
 echo "Found $(cat $job1 | wc -l) single obsnums in $job1"
 echo "Found $(cat $job2 | wc -l) combinations in $job2"
