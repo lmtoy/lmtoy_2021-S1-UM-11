@@ -64,14 +64,14 @@ done
 
 #                       create the run file for combination runs
 
-echo SLpipeline.sh obsnums=$(echo $on1 | sed 's/ /,/g') $common >> $job2
-echo SLpipeline.sh obsnums=$(echo $on2 | sed 's/ /,/g') $common >> $job2
-echo SLpipeline.sh obsnums=$(echo $on3 | sed 's/ /,/g') $common >> $job2
-echo SLpipeline.sh obsnums=$(echo $on4 | sed 's/ /,/g') $common >> $job2
-echo SLpipeline.sh obsnums=$(echo $on5 | sed 's/ /,/g') $common >> $job2
-echo SLpipeline.sh obsnums=$(echo $on6 | sed 's/ /,/g') $common >> $job2
-echo SLpipeline.sh obsnums=$(echo $on7 | sed 's/ /,/g') $common >> $job2
-echo SLpipeline.sh obsnums=$(echo $on8 | sed 's/ /,/g') $common >> $job2
+echo SLpipeline.sh obsnums=$(echo $on1 | sed 's/ /,/g') $common2 >> $job2
+echo SLpipeline.sh obsnums=$(echo $on2 | sed 's/ /,/g') $common2 >> $job2
+echo SLpipeline.sh obsnums=$(echo $on3 | sed 's/ /,/g') $common2 >> $job2
+echo SLpipeline.sh obsnums=$(echo $on4 | sed 's/ /,/g') $common2 >> $job2
+echo SLpipeline.sh obsnums=$(echo $on5 | sed 's/ /,/g') $common2 >> $job2
+echo SLpipeline.sh obsnums=$(echo $on6 | sed 's/ /,/g') $common2 >> $job2
+echo SLpipeline.sh obsnums=$(echo $on7 | sed 's/ /,/g') $common2 >> $job2
+echo SLpipeline.sh obsnums=$(echo $on8 | sed 's/ /,/g') $common2 >> $job2
 
 echo "Found $(cat $job1 | wc -l) single obsnums in $job1"
 echo "Found $(cat $job2 | wc -l) combinations in $job2"
