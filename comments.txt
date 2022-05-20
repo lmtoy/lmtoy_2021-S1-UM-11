@@ -6,6 +6,6 @@
 98271 bad Tsys
 98272 bad Tsys
 #
-98311 bad receiver
-98312 bad receiver
-98313 bad receiver
+98311 bad receiver?
+98312 bad receiver?
+98313 bad receiver?
