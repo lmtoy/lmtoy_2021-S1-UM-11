@@ -1,4 +1,5 @@
 #
+98236 MY:bad Tsys?
 98265 bad Tsys
 98266 bad Tsys
 98267 bad Tsys
@@ -9,3 +10,17 @@
 98311 bad receiver?
 98312 bad receiver?
 98313 bad receiver?
+#
+98333 MY: bad spectra
+98343 MY: bad spectra
+98397 MY: aborted?
+98426 MY: bad Tsys (high tau)
+98427 MY: (high tau)
+98431 MY: bad Tsys
+98495 MY: bad Tsys
+98501 MY: bad Tsys
+
+100075 MY: bad spectrum
+100076 MY: bad Tsys
+100077 MY: bad spectrum
+
