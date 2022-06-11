@@ -21,7 +21,7 @@
 98495 MY: bad Tsys
 98501 MY: bad Tsys
 
-100075 MY: bad spectrum
-100076 MY: bad Tsys
+100075 DEL MY: bad spectrum
+100076 DEL MY: bad Tsys
 100077 MY: bad spectrum
 
