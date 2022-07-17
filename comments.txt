@@ -25,3 +25,4 @@
 100076 DEL MY: bad Tsys
 100077 MY: bad spectrum
 
+101100 bad chopper
