@@ -6,14 +6,7 @@
 import os
 import sys
 
-# in prep of the new lmtoy module
-try:
-    lmtoy = os.environ['LMTOY']
-    sys.path.append(lmtoy + '/lmtoy')
-    import runs
-except:
-    print("No LMTOY with runs.py")
-    sys.exit(0)
+from lmtoy import runs
     
 project="2021-S1-UM-11"
 
@@ -85,4 +78,5 @@ pars2['J165845.46+360543.8'] = ""
 pars2['J211704.27-191850.4'] = ""
 
 
-runs.mk_runs(project, on, pars1, pars2)
+if __name__ == "__main__":
+    runs.mk_runs(project, on, pars1, pars2, None, sys.argv)
